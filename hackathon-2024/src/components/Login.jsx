@@ -24,7 +24,7 @@ export function Login() {
   return (
     <div className="login-container">
       {/* Background Video */}
-      <video autoPlay loop muted className="background-video">
+      <video autoPlay loop muted playsInline className="background-video">
         <source src={motherAndChild} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
