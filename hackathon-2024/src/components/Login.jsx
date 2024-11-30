@@ -2,27 +2,34 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate instead of useHistory
 import { useFormik } from "formik";
 import { AppContext } from "../App";
+import axios from "axios";
 import "../styles/LoginPage.css";
-import motherAndChild from "../video/motherAndChild.mp4"; // Import the video
-
 export function Login() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Use useNavigate here
   const { logged, setLogged } = useContext(AppContext);
-
   const formik = useFormik({
     initialValues: {
-      username: "",
+      email: "",
       password: "",
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      axios.post(
+        "https://hackaton2024api.azurewebsites.net/api/account/login",
+        {
+          email: values.email,
+          password: values.password,
+        }.then((response) => {
+          sessionStorage.setItem("accessKey", response);
+        })
+      );
       setLogged(true);
-      navigate("/landingPage");
+      navigate("/landingPage"); // Use navigate instead of history.push
     },
   });
 
   return (
-    <div className="login-container">
+    <>
+      <div className="login-container" />
       {/* Background Video */}
       <video autoPlay loop muted playsInline className="background-video">
         <source src={motherAndChild} type="video/mp4" />
@@ -31,7 +38,6 @@ export function Login() {
 
       {/* Overlay for dimming */}
       <div className="overlay"></div>
-
       {/* Login Form */}
       <form className="login-form" onSubmit={formik.handleSubmit}>
         <label htmlFor="Email">Email Address</label>
@@ -42,15 +48,7 @@ export function Login() {
           onChange={formik.handleChange}
           value={formik.values.email}
         />
-        <label htmlFor="Username">Username</label>
-        <input
-          id="username"
-          name="username"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.username}
-        />
-        <label htmlFor="Password">Password</label>
+        <label htmlFor="password">Password</label>
         <input
           id="password"
           name="password"
@@ -61,6 +59,10 @@ export function Login() {
 
         <button type="submit">Submit</button>
       </form>
-    </div>
+      <div className="content-container">
+        <p>If you dont have an account go to register</p>
+        <button onClick={() => navigate("/register")}>Register</button>
+      </div>
+    </>
   );
 }

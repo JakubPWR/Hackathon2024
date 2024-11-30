@@ -6,6 +6,7 @@ import { Login } from "./components/Login";
 import FindNewHobby from "./components/FindNewHobby";
 import UserProfile from "./components/UserProfile";
 import Footer from "./components/Footer";
+import { Register } from "./components/Register";
 import Settings from "./components/Settings";
 import "./index.css";
 
@@ -17,8 +18,10 @@ function App() {
   const [theme, setTheme] = useState("light");
   const [fontSize, setFontSize] = useState("medium");
   useEffect(() => {
-    console.log(`aktualny stan to: ${logged}`);
-  }, [logged]);
+    if (sessionStorage.getItem("accessKey")) {
+      setLogged(true);
+    }
+  }, []);
 
   useEffect(() => {
     document.body.className = ""; // Resetuje klasy
