@@ -1,5 +1,7 @@
 import "../styles/LandingPage.css";
+import { useNavigate } from "react-router-dom";
 function LandingPage() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="landing-page">
@@ -12,7 +14,7 @@ function LandingPage() {
           </p>
           <button
             className="start-quiz-btn"
-            onClick={() => alert("Zaczynamy Quiz!")}
+            onClick={() => navigate("/find-hobby")}
           >
             Wylosuj hobby
           </button>
