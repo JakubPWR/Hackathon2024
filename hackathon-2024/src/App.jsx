@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import { Register } from "./components/Register";
 import Settings from "./components/Settings";
 import "./index.css";
+import Ranking from "./components/Ranking";
 
 export const AppContext = createContext();
 
@@ -51,6 +52,7 @@ function App() {
         <Route path="/about" element={<h1>About Page</h1>} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/ranking" element={<Ranking />} />
 
         <Route path="/find-hobby" element={<FindNewHobby />} />
         <Route path="/user-profile" element={<UserProfile />} />
