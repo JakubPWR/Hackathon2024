@@ -6,10 +6,7 @@ import { Login } from "./components/Login";
 import FindNewHobby from "./components/FindNewHobby";
 import UserProfile from "./components/UserProfile";
 import Footer from "./components/Footer";
-<<<<<<< HEAD
 import { Register } from "./components/Register";
-=======
->>>>>>> e9626a889ee806557ddbe98ea867c84828234010
 import Settings from "./components/Settings";
 import "./index.css";
 
