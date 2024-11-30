@@ -6,8 +6,7 @@ import { Login } from "./components/Login";
 import FindNewHobby from "./components/FindNewHobby";
 import UserProfile from "./components/UserProfile";
 import Footer from "./components/Footer";
-import UserProfile from "./components/UserProfile";
-import Footer from "./components/Footer";
+import { Register } from "./components/Register";
 import Settings from "./components/Settings";
 import "./index.css";
 
@@ -31,18 +30,6 @@ function App() {
 
   return (
     <>
-      <AppContext.Provider
-        value={{
-          userId,
-          setUserId,
-          logged,
-          setLogged,
-          theme,
-          setTheme,
-          fontSize,
-          setFontSize,
-        }}
-      >
       <AppContext.Provider value={{ userId, setUserId, logged, setLogged }}>
         <Header />
         <Routes>
@@ -53,6 +40,7 @@ function App() {
 
           <Route path="/find-hobby" element={<FindNewHobby />} />
           <Route path="/user-profile" element={<UserProfile />} />
+          <Route path="/register" element={<Register />} />
           <Route
             path="/tutorial/photography"
             element={<h1>Fotografia Tutorial</h1>}
