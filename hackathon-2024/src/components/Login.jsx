@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate instead of useHistory
 import { useFormik } from "formik";
-import "../styles/LoginPage.css";
 import { AppContext } from "../App";
-import LandingPage from "./LandingPage";
-
+import "../styles/LoginPage.css";
 export function Login() {
   const navigate = useNavigate(); // Use useNavigate here
   const { logged, setLogged } = useContext(AppContext);
