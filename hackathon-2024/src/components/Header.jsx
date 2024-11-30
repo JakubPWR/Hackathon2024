@@ -19,7 +19,7 @@ function Header() {
               <a href="#services">Ranking</a>
             </li>
             <li className="nav-item">
-              <a href="#contact">Profil</a>
+              <Link to="/user-profile">Profil</Link>
             </li>
           </ul>
         </nav>
