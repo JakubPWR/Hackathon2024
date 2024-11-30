@@ -23,10 +23,11 @@ function App() {
   useEffect(() => {
     document.body.className = ""; // Resetuje klasy
     document.body.classList.add(theme);
-    document.body.style.fontSize =
-      fontSize === "small" ? "14px" : fontSize === "large" ? "26px" : "16px";
+    document.body.style.setProperty(
+      "--font-size",
+      fontSize === "small" ? "14px" : fontSize === "large" ? "26px" : "16px"
+    );
   }, [theme, fontSize]);
-
   return (
     <AppContext.Provider
       value={{
