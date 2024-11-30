@@ -51,7 +51,9 @@ function FindNewHobby() {
                 backgroundImage: `url("/src/images/tokoniec.jpg")`,
               }}
             >
-              <p className="end-message">Wylosowałeś wszystkie hobby!</p>
+              <p className="end-message">
+                Wylosowałeś wszystkie dostępne hobby!
+              </p>
             </div>
           )}
           {selectedHobby && remainingHobbies.length > 0 && (
