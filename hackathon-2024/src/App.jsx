@@ -1,7 +1,7 @@
 function App() {
   return (
     <>
-      <p>hackathon</p>
+      <p>hackathon2</p>
     </>
   );
 }

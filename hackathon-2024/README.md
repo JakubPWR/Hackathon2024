@@ -11,4 +11,4 @@ Currently, two official plugins are available:
 npm install vite 
 npm install prettier
 npm install react
-npm install react-router-do
+npm install react-router-dom
