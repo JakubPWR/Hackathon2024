@@ -22,10 +22,16 @@ function App() {
   const [theme, setTheme] = useState("light");
   const [fontSize, setFontSize] = useState("medium");
 
+
   useEffect(() => {
     if (sessionStorage.getItem("accessKey")) {
       setLogged(true);
     }
+  };
+
+  useEffect(() => {
+    const jwt = sessionStorage.getItem("accessKey");
+    ifLogged(jwt);
   }, []);
 
   useEffect(() => {
