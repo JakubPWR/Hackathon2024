@@ -1,13 +1,30 @@
-function Login() {
+import React from "react";
+import { useFormik } from "formik";
+export function Login() {
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      password: "",
+    },
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
 
+  return (
+    <>
+      <form onSubmit={formik.handleSubmit}>
+        <label htmlFor="email">Email Address</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          onChange={formik.handleChange}
+          value={formik.values.email}
+        />
 
-  
-    return (
-      <>
-        <p>login to an app</p>
-      </>
-    );
-  }
-  
-  export default Login;
-  
+        <button type="submit">Submit</button>
+      </form>
+    </>
+  );
+}
