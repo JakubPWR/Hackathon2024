@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate instead of
 import { useFormik } from "formik";
 import { AppContext } from "../App";
 import axios from "axios";
+import motherAndChild from "../video/motherAndChild.mp4";
 import "../styles/LoginPage.css";
 export function Login() {
   const navigate = useNavigate(); // Use useNavigate here
