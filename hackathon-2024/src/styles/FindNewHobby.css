@@ -1,0 +1,47 @@
+.find-new-hobby {
+  text-align: center;
+  padding: 20px;
+}
+
+.hobby-container {
+  margin: 20px auto;
+  max-width: 600px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hidden-hobby {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #aaa;
+}
+
+.hobby-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.randomize-button,
+.learn-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.randomize-button:hover,
+.learn-button:hover {
+  background-color: #0056b3;
+}

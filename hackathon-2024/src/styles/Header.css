@@ -46,3 +46,14 @@ body {
 .nav-item a:hover {
   color: #007bff;
 }
+.header-logo-h2 a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.header-logo-h2 a:hover {
+  color: #007bff;
+}
