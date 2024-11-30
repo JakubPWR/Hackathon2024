@@ -7,7 +7,7 @@ function LandingPage() {
   return (
     <div className="landing-page">
       {/* Background Video */}
-      <video autoPlay loop muted className="background-video">
+      <video autoPlay loop muted playsInline className="background-video">
         <source src={skateboard} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
