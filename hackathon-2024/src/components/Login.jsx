@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate instead of useHistory
 import { useFormik } from "formik";
 import { AppContext } from "../App";
+import axios from "axios";
 import "../styles/LoginPage.css";
 export function Login() {
   const navigate = useNavigate(); // Use useNavigate here
@@ -9,11 +10,19 @@ export function Login() {
   const formik = useFormik({
     initialValues: {
       email: "",
-      username: "",
+
       password: "",
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      axios.post(
+        "https://hackaton2024api.azurewebsites.net/api/account/login",
+        {
+          email: values.email,
+          password: values.password,
+        }.then((response) => {
+          sessionStorage.setItem("accessKey", response);
+        })
+      );
       setLogged(true);
       navigate("/landingPage"); // Use navigate instead of history.push
     },
@@ -30,15 +39,7 @@ export function Login() {
           onChange={formik.handleChange}
           value={formik.values.email}
         />
-        <label htmlFor="Username">Username</label>
-        <input
-          id="username"
-          name="username"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.username}
-        />
-        <label htmlFor="Password">Password</label>
+        <label htmlFor="password">Password</label>
         <input
           id="password"
           name="password"

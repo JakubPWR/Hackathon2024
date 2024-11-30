@@ -6,7 +6,10 @@ import { Login } from "./components/Login";
 import FindNewHobby from "./components/FindNewHobby";
 import UserProfile from "./components/UserProfile";
 import Footer from "./components/Footer";
+<<<<<<< HEAD
 import { Register } from "./components/Register";
+=======
+>>>>>>> e9626a889ee806557ddbe98ea867c84828234010
 import Settings from "./components/Settings";
 import "./index.css";
 
@@ -24,50 +27,42 @@ function App() {
   useEffect(() => {
     document.body.className = ""; // Resetuje klasy
     document.body.classList.add(theme);
-    document.body.style.fontSize =
-      fontSize === "small" ? "14px" : fontSize === "large" ? "26px" : "16px";
+    document.body.style.setProperty(
+      "--font-size",
+      fontSize === "small" ? "14px" : fontSize === "large" ? "26px" : "16px"
+    );
   }, [theme, fontSize]);
-
   return (
-    <>
-      <AppContext.Provider
-        value={{
-          userId,
-          setUserId,
-          logged,
-          setLogged,
-          theme,
-          setTheme,
-          fontSize,
-          setFontSize,
-        }}
-      >
-        <Header />
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/landingPage" element={<LandingPage />} />
-          <Route path="/about" element={<h1>About Page</h1>} />
-          <Route path="/settings" element={<Settings />} />
+    <AppContext.Provider
+      value={{
+        userId,
+        setUserId,
+        logged,
+        setLogged,
+        theme,
+        setTheme,
+        fontSize,
+        setFontSize,
+      }}
+    >
+      <Header />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/landingPage" element={<LandingPage />} />
+        <Route path="/about" element={<h1>About Page</h1>} />
+        <Route path="/settings" element={<Settings />} />
 
-          <Route path="/find-hobby" element={<FindNewHobby />} />
-          <Route path="/user-profile" element={<UserProfile />} />
-          <Route path="/register" element={<Register />} />
-          <Route
-            path="/tutorial/photography"
-            element={<h1>Fotografia Tutorial</h1>}
-          />
-          <Route
-            path="/tutorial/drawing"
-            element={<h1>Rysowanie Tutorial</h1>}
-          />
-          <Route
-            path="/tutorial/cooking"
-            element={<h1>Gotowanie Tutorial</h1>}
-          />
-        </Routes>
-        <Footer />
-      </AppContext.Provider>
-    </>
+        <Route path="/find-hobby" element={<FindNewHobby />} />
+        <Route path="/user-profile" element={<UserProfile />} />
+        <Route
+          path="/tutorial/photography"
+          element={<h1>Fotografia Tutorial</h1>}
+        />
+        <Route path="/tutorial/drawing" element={<h1>Rysowanie Tutorial</h1>} />
+        <Route path="/tutorial/cooking" element={<h1>Gotowanie Tutorial</h1>} />
+      </Routes>
+      <Footer />
+    </AppContext.Provider>
   );
 }
 
