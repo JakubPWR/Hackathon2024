@@ -28,20 +28,24 @@ body.high-contrast .find-new-hobby {
 }
 
 /* Wrapper for the image */
+/* Wrapper for the image */
 .image-wrapper {
   width: 100%;
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
+  max-width: 600px; /* Maksymalna szerokość kontenera */
+  height: calc(
+    600px / 16 * 9
+  ); /* Wysokość obliczona na podstawie proporcji 16:9 */
+  background-size: cover; /* Dopasowanie obrazu */
+  background-position: center; /* Wycentrowanie obrazu */
+  background-repeat: no-repeat; /* Wyłączenie powtarzania obrazu */
+  border-radius: 8px; /* Zaokrąglone rogi */
+  margin: 0 auto; /* Centrowanie w poziomie */
+  overflow: hidden; /* Ukrycie elementów wychodzących poza kontener */
   transition:
     opacity 1s ease-in-out,
     transform 1s ease-in-out;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Delikatny cień */
 }
-
 /* High Contrast adjustments for image wrapper */
 body.high-contrast .image-wrapper {
   border: 3px solid #ffff00;

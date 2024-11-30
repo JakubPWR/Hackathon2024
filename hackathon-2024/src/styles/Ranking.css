@@ -1,0 +1,95 @@
+/* General Ranking Styles */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: var(--font-size, 16px); /* Dynamic font size */
+}
+
+/* Ranking Container */
+.ranking-container {
+  height: 90vh;
+  display: flex;
+  justify-content: space-around; /* Space between the boxes */
+  align-items: flex-start; /* Align boxes to the top */
+  margin: 20px;
+  padding: 20px;
+  gap: 20px; /* Space between the boxes */
+}
+
+/* Individual Ranking Box */
+.ranking-box {
+  flex: 1; /* Make both boxes the same width */
+  max-width: 500px; /* Optional: Limit the width of each box */
+  background-color: var(--box-bg, #f8f8f8); /* Dynamic background color */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  color: var(--box-color, #333); /* Dynamic text color */
+}
+
+/* Ranking Box Title */
+.ranking-box h2 {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: calc(1.5 * var(--font-size)); /* Dynamic font size for titles */
+  color: var(--title-color, #333);
+}
+
+/* List of Users */
+.ranking-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ranking-box li {
+  padding: calc(0.8 * var(--font-size)) 0; /* Dynamic padding */
+  border-bottom: 1px solid var(--border-color, #ddd); /* Dynamic border color */
+  font-size: calc(1 * var(--font-size)); /* Dynamic font size */
+  display: flex;
+  justify-content: space-between; /* Align name and points */
+}
+
+/* Remove border for last item */
+.ranking-box li:last-child {
+  border-bottom: none;
+}
+
+/* Light Mode */
+body.light .ranking-box {
+  --box-bg: #f8f8f8;
+  --box-color: #333;
+  --border-color: #ddd;
+  --title-color: #333;
+}
+
+/* Dark Mode */
+body.dark .ranking-box {
+  --box-bg: #1e1e1e;
+  --box-color: #e0e0e0;
+  --border-color: #444;
+  --title-color: #e0e0e0;
+}
+
+/* High Contrast Mode */
+body.high-contrast .ranking-box {
+  --box-bg: #000;
+  --box-color: #ffff00;
+  --border-color: #ffff00;
+  --title-color: #ffff00;
+  border: 2px solid #ffff00;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .ranking-container {
+    flex-direction: column; /* Stack boxes vertically on smaller screens */
+    gap: 15px;
+  }
+
+  .ranking-box {
+    max-width: 100%; /* Full width for smaller screens */
+  }
+}
