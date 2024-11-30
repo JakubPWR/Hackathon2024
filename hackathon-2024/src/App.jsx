@@ -6,6 +6,8 @@ import { Login } from "./components/Login";
 import FindNewHobby from "./components/FindNewHobby";
 import UserProfile from "./components/UserProfile";
 import Footer from "./components/Footer";
+import UserProfile from "./components/UserProfile";
+import Footer from "./components/Footer";
 import Settings from "./components/Settings";
 import "./index.css";
 
@@ -16,7 +18,6 @@ function App() {
   const [userId, setUserId] = useState(1);
   const [theme, setTheme] = useState("light");
   const [fontSize, setFontSize] = useState("medium");
-
   useEffect(() => {
     console.log(`aktualny stan to: ${logged}`);
   }, [logged]);
@@ -42,6 +43,7 @@ function App() {
           setFontSize,
         }}
       >
+      <AppContext.Provider value={{ userId, setUserId, logged, setLogged }}>
         <Header />
         <Routes>
           <Route path="/" element={<Login />} />
