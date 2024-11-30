@@ -6,6 +6,8 @@ import { Login } from "./components/Login";
 import FindNewHobby from "./components/FindNewHobby";
 import UserProfile from "./components/UserProfile";
 import Footer from "./components/Footer";
+import UserProfile from "./components/UserProfile";
+import Footer from "./components/Footer";
 
 export const AppContext = createContext();
 
