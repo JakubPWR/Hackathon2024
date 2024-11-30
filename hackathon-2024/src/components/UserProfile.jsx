@@ -1,13 +1,13 @@
+import React from "react";
+import { AppContext } from "../App";
+import { useContext } from "react";
 function UserProfile() {
+  const { userId } = useContext(AppContext);
+  return (
+    <>
+      <p>Users is {userId}</p>
+    </>
+  );
+}
 
-
-  
-    return (
-      <>
-        <p>here is user profile with info about tutorials and point bla bla</p>
-      </>
-    );
-  }
-  
-  export default UserProfile;
-  
+export default UserProfile;
