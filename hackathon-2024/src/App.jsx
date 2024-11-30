@@ -5,6 +5,7 @@ import LandingPage from "./components/LandingPage";
 import { Login } from "./components/Login";
 import FindNewHobby from "./components/FindNewHobby";
 import UserProfile from "./components/UserProfile";
+import Footer from "./components/Footer";
 
 export const AppContext = createContext();
 
@@ -37,6 +38,7 @@ function App() {
             element={<h1>Gotowanie Tutorial</h1>}
           />
         </Routes>
+        <Footer />
       </AppContext.Provider>
     </>
   );
