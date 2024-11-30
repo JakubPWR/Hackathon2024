@@ -30,29 +30,31 @@ function Ranking() {
   ];
 
   return (
-    <div className="ranking-container">
-      {/* User Ranking */}
-      <div className="ranking-box">
-        <h2>Ranking Użytkowników</h2>
-        <ul>
-          {userRanking.map((user, index) => (
-            <li key={index}>
-              {index + 1}. {user.name} 🔥 {user.points}
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className="ranking-page">
+      <div className="ranking-container">
+        {/* User Ranking */}
+        <div className="ranking-box">
+          <h2>Ranking Użytkowników</h2>
+          <ul>
+            {userRanking.map((user, index) => (
+              <li key={index}>
+                {index + 1}. {user.name} 🔥 {user.points}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      {/* Friends Ranking */}
-      <div className="ranking-box">
-        <h2>Ranking Znajomych</h2>
-        <ul>
-          {friendsRanking.map((friend, index) => (
-            <li key={index}>
-              {index + 1}. {friend.name} 🔥 {friend.points}
-            </li>
-          ))}
-        </ul>
+        {/* Friends Ranking */}
+        <div className="ranking-box">
+          <h2>Ranking Znajomych</h2>
+          <ul>
+            {friendsRanking.map((friend, index) => (
+              <li key={index}>
+                {index + 1}. {friend.name} 🔥 {friend.points}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

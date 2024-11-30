@@ -8,8 +8,8 @@ import UserProfile from "./components/UserProfile";
 import Footer from "./components/Footer";
 import { Register } from "./components/Register";
 import Settings from "./components/Settings";
-import "./index.css";
 import Ranking from "./components/Ranking";
+import "./index.css";
 
 export const AppContext = createContext();
 
@@ -18,6 +18,7 @@ function App() {
   const [userId, setUserId] = useState(1);
   const [theme, setTheme] = useState("light");
   const [fontSize, setFontSize] = useState("medium");
+
   useEffect(() => {
     if (sessionStorage.getItem("accessKey")) {
       setLogged(true);
@@ -25,13 +26,14 @@ function App() {
   }, []);
 
   useEffect(() => {
-    document.body.className = ""; // Resetuje klasy
+    document.body.className = ""; // Reset classes
     document.body.classList.add(theme);
     document.body.style.setProperty(
       "--font-size",
       fontSize === "small" ? "14px" : fontSize === "large" ? "26px" : "16px"
     );
   }, [theme, fontSize]);
+
   return (
     <AppContext.Provider
       value={{
@@ -53,7 +55,6 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/register" element={<Register />} />
         <Route path="/ranking" element={<Ranking />} />
-
         <Route path="/find-hobby" element={<FindNewHobby />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route
