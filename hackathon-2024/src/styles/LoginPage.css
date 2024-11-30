@@ -1,116 +1,149 @@
-/* General Styles for Login Form */
-.login-container {
-  height: 90vh;
+/* General styles */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
 }
+
+/* Login Container */
+.login-container {
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Background Video */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire background */
+  z-index: -2; /* Push the video behind other elements */
+}
+
+/* Overlay for dimming the video */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: -1; /* Push the overlay behind the form */
+}
+
+/* Login Form */
 .login-form {
+  z-index: 1; /* Ensures the form is above the overlay */
   max-width: 400px;
-  margin: 50px auto;
+  margin: 0 auto;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: var(--form-background, #fff);
+  background-color: var(
+    --form-background,
+    #fff
+  ); /* Background color for the form */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for form */
   color: var(--form-text-color, #333);
-  font-size: var(--font-size, 16px);
+  font-size: var(--font-size, 16px); /* Dynamic font size */
   text-align: left;
 }
 
 /* Input Fields */
 .login-form input {
   width: 100%;
-  padding: 15px 30px; /* Dopasowanie paddingu do przycisku */
+  padding: 15px 30px; /* Consistent padding for inputs */
   margin-bottom: 20px;
   border: 1px solid var(--input-border-color, #ccc);
   border-radius: 4px;
-  font-size: var(--font-size, 16px);
+  font-size: var(--font-size, 16px); /* Dynamic font size */
   background-color: var(--input-background, #f9f9f9);
   color: var(--input-text-color, #333);
-  box-sizing: border-box; /* Upewnienie się, że padding i border są uwzględnione */
-}
-
-/* Light Mode Inputs */
-body.light .login-form input {
-  --input-border-color: #ccc;
-  --input-background: #ffffff;
-  --input-text-color: #333333;
-}
-
-/* Dark Mode Inputs */
-body.dark .login-form input {
-  --input-border-color: #444;
-  --input-background: #e0e0e0;
-  --input-text-color: #c2c2c0;
-}
-
-/* High Contrast Mode Inputs */
-body.high-contrast .login-form input {
-  --input-border-color: #ffff00;
-  --input-background: #000000;
-  --input-text-color: #ffff00;
+  box-sizing: border-box; /* Ensure padding and borders are included in the element's total width/height */
 }
 
 /* Labels */
 .login-form label {
-  font-size: var(--font-size, 16px);
+  font-size: calc(1 * var(--font-size)); /* Adjust label size dynamically */
   margin-bottom: 5px;
   display: block;
 }
 
-/* Button */
+/* Submit Button */
 .login-form button {
   width: 100%;
-  padding: 10px;
-  font-size: var(--font-size, 16px);
-  background-color: var(
-    --button-background,
-    #007bff
-  ); /* Default button background */
-  color: var(--button-text-color, white); /* Default button text color */
+  padding: 15px 30px; /* Match padding with inputs */
+  font-size: calc(1 * var(--font-size)); /* Dynamic font size */
+  background-color: var(--button-background, #007bff);
+  color: var(--button-text-color, white);
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
 }
 
-/* Light Mode Button */
-body.light .login-form button {
+.login-form button:hover {
+  background-color: var(--button-hover-color, #0056b3);
+  transform: scale(1.05); /* Slight scaling on hover */
+}
+
+/* Light Mode */
+body.light .login-form {
+  --form-background: #ffffff;
+  --form-text-color: #333;
+  --input-border-color: #ccc;
+  --input-background: #ffffff;
+  --input-text-color: #333;
   --button-background: #007bff;
   --button-text-color: white;
+  --button-hover-color: #0056b3;
 }
 
-body.light .login-form button:hover {
-  background-color: #0056b3;
+/* Dark Mode */
+body.dark {
+  background-color: #121212; /* Background for entire page */
+  color: #e0e0e0;
 }
 
-/* Dark Mode Button */
-body.dark .login-form button {
+body.dark .login-form {
+  --form-background: #1e1e1e;
+  --form-text-color: #e0e0e0;
+  --input-border-color: #444;
+  --input-background: #2c2c2c;
+  --input-text-color: #e0e0e0;
   --button-background: #90caf9;
   --button-text-color: #121212;
+  --button-hover-color: #64b5f6;
 }
 
-body.dark .login-form button:hover {
-  background-color: #64b5f6;
+/* High Contrast Mode */
+body.high-contrast {
+  background-color: #000; /* Background for entire page */
+  color: #ffff00;
 }
 
-/* High Contrast Mode Button */
-body.high-contrast .login-form button {
+body.high-contrast .login-form {
+  --form-background: #000;
+  --form-text-color: #ffff00;
+  --input-border-color: #ffff00;
+  --input-background: #000000;
+  --input-text-color: #ffff00;
   --button-background: #ffff00;
   --button-text-color: #000000;
-}
-
-body.high-contrast .login-form button:hover {
-  background-color: #ffcc00;
-}
-
-/* Error Styles (Optional if Validation Added) */
-.login-form .error {
-  color: var(--error-color, red);
-  font-size: 0.9rem;
-  margin-top: -15px;
-  margin-bottom: 10px;
+  --button-hover-color: #ffcc00;
 }
 
 /* Responsive Adjustments */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .login-form {
     padding: 15px;
   }
@@ -118,6 +151,18 @@ body.high-contrast .login-form button:hover {
   .login-form button,
   .login-form input {
     font-size: 14px;
+    padding: 10px;
   }
 }
-/* updating css comment to github*/
+
+@media (max-width: 480px) {
+  .login-form {
+    padding: 10px;
+  }
+
+  .login-form button,
+  .login-form input {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
