@@ -19,7 +19,7 @@ export function Login() {
   });
 
   return (
-    <>
+    <div className="login-container">
       <form className="login-form" onSubmit={formik.handleSubmit}>
         <label htmlFor="Email">Email Address</label>
         <input
@@ -48,6 +48,6 @@ export function Login() {
 
         <button type="submit">Submit</button>
       </form>
-    </>
+    </div>
   );
 }

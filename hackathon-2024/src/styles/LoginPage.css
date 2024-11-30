@@ -1,57 +1,123 @@
-/* General Reset */
-body,
-html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+/* General Styles for Login Form */
+.login-container {
+  height: 90vh;
 }
-
-/* Landing Page Styles */
 .login-form {
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
-  height: 100vh;
-  background-color: #f9f9f9;
-  padding: 0 20px;
-}
-
-.content-container {
-  max-width: 800px;
-  text-align: center;
-  background: white;
-  padding: 40px;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--form-background, #fff);
+  color: var(--form-text-color, #333);
+  font-size: var(--font-size, 16px);
+  text-align: left;
 }
 
-.title {
-  font-size: 2.5rem;
-  color: #333;
+/* Input Fields */
+.login-form input {
+  width: 100%;
+  padding: 15px 30px; /* Dopasowanie paddingu do przycisku */
   margin-bottom: 20px;
+  border: 1px solid var(--input-border-color, #ccc);
+  border-radius: 4px;
+  font-size: var(--font-size, 16px);
+  background-color: var(--input-background, #f9f9f9);
+  color: var(--input-text-color, #333);
+  box-sizing: border-box; /* Upewnienie się, że padding i border są uwzględnione */
 }
 
-.description {
-  font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 30px;
-  line-height: 1.6;
+/* Light Mode Inputs */
+body.light .login-form input {
+  --input-border-color: #ccc;
+  --input-background: #ffffff;
+  --input-text-color: #333333;
 }
 
-.start-quiz-btn {
-  background-color: #007bff;
-  color: white;
+/* Dark Mode Inputs */
+body.dark .login-form input {
+  --input-border-color: #444;
+  --input-background: #e0e0e0;
+  --input-text-color: #c2c2c0;
+}
+
+/* High Contrast Mode Inputs */
+body.high-contrast .login-form input {
+  --input-border-color: #ffff00;
+  --input-background: #000000;
+  --input-text-color: #ffff00;
+}
+
+/* Labels */
+.login-form label {
+  font-size: var(--font-size, 16px);
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Button */
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  font-size: var(--font-size, 16px);
+  background-color: var(
+    --button-background,
+    #007bff
+  ); /* Default button background */
+  color: var(--button-text-color, white); /* Default button text color */
   border: none;
-  padding: 15px 30px;
-  font-size: 1rem;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.start-quiz-btn:hover {
+/* Light Mode Button */
+body.light .login-form button {
+  --button-background: #007bff;
+  --button-text-color: white;
+}
+
+body.light .login-form button:hover {
   background-color: #0056b3;
 }
+
+/* Dark Mode Button */
+body.dark .login-form button {
+  --button-background: #90caf9;
+  --button-text-color: #121212;
+}
+
+body.dark .login-form button:hover {
+  background-color: #64b5f6;
+}
+
+/* High Contrast Mode Button */
+body.high-contrast .login-form button {
+  --button-background: #ffff00;
+  --button-text-color: #000000;
+}
+
+body.high-contrast .login-form button:hover {
+  background-color: #ffcc00;
+}
+
+/* Error Styles (Optional if Validation Added) */
+.login-form .error {
+  color: var(--error-color, red);
+  font-size: 0.9rem;
+  margin-top: -15px;
+  margin-bottom: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .login-form {
+    padding: 15px;
+  }
+
+  .login-form button,
+  .login-form input {
+    font-size: 14px;
+  }
+}
+/* updating css comment to github*/
