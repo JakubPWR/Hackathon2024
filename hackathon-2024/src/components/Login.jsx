@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate instead of useHistory
 import { useFormik } from "formik";
 import "../styles/LoginPage.css";
 export function Login() {
+  const navigate = useNavigate(); // Use useNavigate here
+  const { logged, setLogged } = useContext(AppContext);
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -9,6 +12,8 @@ export function Login() {
     },
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
+      setLogged(true);
+      navigate("/landingPage"); // Use navigate instead of history.push
     },
   });
 
