@@ -8,23 +8,49 @@ import UserProfile from "./components/UserProfile";
 import Footer from "./components/Footer";
 import UserProfile from "./components/UserProfile";
 import Footer from "./components/Footer";
+import Settings from "./components/Settings";
+import "./index.css";
 
 export const AppContext = createContext();
 
 function App() {
   const [logged, setLogged] = useState(false);
   const [userId, setUserId] = useState(1);
+  const [theme, setTheme] = useState("light");
+  const [fontSize, setFontSize] = useState("medium");
   useEffect(() => {
     console.log(`aktualny stan to: ${logged}`);
   }, [logged]);
+
+  useEffect(() => {
+    document.body.className = ""; // Resetuje klasy
+    document.body.classList.add(theme);
+    document.body.style.fontSize =
+      fontSize === "small" ? "14px" : fontSize === "large" ? "26px" : "16px";
+  }, [theme, fontSize]);
+
   return (
     <>
+      <AppContext.Provider
+        value={{
+          userId,
+          setUserId,
+          logged,
+          setLogged,
+          theme,
+          setTheme,
+          fontSize,
+          setFontSize,
+        }}
+      >
       <AppContext.Provider value={{ userId, setUserId, logged, setLogged }}>
         <Header />
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/landingPage" element={<LandingPage />} />
           <Route path="/about" element={<h1>About Page</h1>} />
+          <Route path="/settings" element={<Settings />} />
+
           <Route path="/find-hobby" element={<FindNewHobby />} />
           <Route path="/user-profile" element={<UserProfile />} />
           <Route
