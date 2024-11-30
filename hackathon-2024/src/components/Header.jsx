@@ -5,7 +5,7 @@ function Header() {
     <>
       <header className="header">
         <div className="header-container">
-          <img src="logo.png" alt="Logo" className="header-logo" />
+          <h2 className="header-logo-h2">Hobbystycznie</h2>
           <nav className="header-nav">
             <ul className="nav-list">
               <li className="nav-item">
