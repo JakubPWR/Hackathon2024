@@ -3,9 +3,12 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate instead of
 import { useFormik } from "formik";
 import { AppContext } from "../App";
 import "../styles/LoginPage.css";
+import motherAndChild from "../video/motherAndChild.mp4"; // Import the video
+
 export function Login() {
-  const navigate = useNavigate(); // Use useNavigate here
+  const navigate = useNavigate();
   const { logged, setLogged } = useContext(AppContext);
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -14,12 +17,22 @@ export function Login() {
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
       setLogged(true);
-      navigate("/landingPage"); // Use navigate instead of history.push
+      navigate("/landingPage");
     },
   });
 
   return (
     <div className="login-container">
+      {/* Background Video */}
+      <video autoPlay loop muted className="background-video">
+        <source src={motherAndChild} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Overlay for dimming */}
+      <div className="overlay"></div>
+
+      {/* Login Form */}
       <form className="login-form" onSubmit={formik.handleSubmit}>
         <label htmlFor="Email">Email Address</label>
         <input
