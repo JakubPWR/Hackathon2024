@@ -2,10 +2,10 @@ import "../styles/LandingPage.css";
 import { useNavigate } from "react-router-dom";
 import skateboard from "../video/skateboard.mp4"; // Import wideo jako tło
 import { AppContext } from "../App";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 function LandingPage() {
-  const { logged } = useContext(AppContext);
+  const { logged, userId } = useContext(AppContext);
 
   const navigate = useNavigate();
   return (

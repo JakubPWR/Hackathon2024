@@ -38,6 +38,14 @@ public class AccountService : IAccountService
 
         newUser.PasswordHash = _passwordHasher.HashPassword(newUser, dto.Password);
 
+        var activities = await _dbContext.Activities.ToListAsync();
+
+        newUser.UserActivities = activities.Select(a => new UserActivity
+        {
+            ActivityId = a.Id,
+            User = newUser
+        }).ToList();
+
         await _dbContext.Users.AddAsync(newUser);
         await _dbContext.SaveChangesAsync();
     }
@@ -48,14 +56,14 @@ public class AccountService : IAccountService
 
         if (user is null)
         {
-            throw new BadRequestException("Invalid name or password");
+            throw new BadRequestException("Invalid email or password");
         }
 
         var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, dto.Password);
 
         if (result == PasswordVerificationResult.Failed)
         {
-            throw new BadRequestException("Invalid useranme or password");
+            throw new BadRequestException("Invalid email or password");
         }
 
         var claims = new List<Claim>()
@@ -80,7 +88,7 @@ public class AccountService : IAccountService
 
         if (user is null)
         {
-            throw new BadRequestException("Invalid name or password");
+            throw new BadRequestException("Invalid email or password");
         }
 
         return user.Id;
