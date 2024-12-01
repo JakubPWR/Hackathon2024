@@ -4,13 +4,14 @@ html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  font-size: var(--font-size, 16px); /* Default font size */
+  font-size: var(--font-size, 16px); /* Dynamiczna czcionka */
+  height: 100%;
 }
 
 /* Find New Hobby Section */
 .find-new-hobby {
   position: relative;
-  height: 100vh; /* Full viewport height */
+  height: 90vh; /* Zmniejszone na 90% wysokości widoku */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,82 +30,120 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Dimming effect */
+  background-color: rgba(0, 0, 0, 0.5); /* Przyciemnienie */
   z-index: -1;
 }
 
 /* Content Box */
 .content-box {
   z-index: 1;
-  max-width: 800px;
+  max-width: 700px; /* Zmniejszono szerokość boxa */
+  width: 90%; /* Pełna szerokość na mniejszych ekranach */
   text-align: center;
-  padding: 40px;
+  padding: 30px; /* Zmniejszono padding */
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  background-color: var(
+    --box-background,
+    rgba(255, 255, 255, 0.8)
+  ); /* Dynamic background */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   color: var(--content-color, #333);
+  min-height: 400px; /* Zmniejszono wysokość */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Title */
 /* Title */
 .content-box h1 {
-  font-size: calc(1.6 * var(--font-size)); /* Dynamic font size */
-  margin-bottom: 20px;
-  color: var(--title-color, #333); /* Dynamic color */
-}
-
-/* Light Mode */
-body.light .content-box h1 {
-  --title-color: #333; /* Default dark color for light mode */
-}
-
-/* Dark Mode */
-body.dark .content-box h1 {
-  --title-color: #f9f9f9; /* Light text for dark mode */
-}
-
-/* High Contrast Mode */
-body.high-contrast .content-box h1 {
-  --title-color: #ffff00; /* Yellow text for high contrast mode */
+  font-size: calc(1.4 * var(--font-size)); /* Dynamiczny rozmiar tytułu */
+  margin-bottom: 15px;
+  color: var(--title-color, #333); /* Dynamiczny kolor tytułu */
 }
 
 /* Hobby Container */
 .hobby-container {
-  margin: 20px auto;
+  margin: 15px auto;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Image Wrapper */
-/* Image Wrapper */
 .image-wrapper {
-  width: 100%;
-  max-width: 600px; /* Maksymalna szerokość kontenera */
-  min-width: 300px; /* Minimalna szerokość zdjęcia */
-  height: calc(600px / 16 * 9); /* Proporcje 16:9 */
-  background-size: contain; /* Dopasowuje obraz, aby był w pełni widoczny */
-  background-position: center;
+  width: 90%; /* Używa 90% szerokości kontenera */
+  max-width: 500px; /* Zmniejszono maksymalną szerokość */
+  height: 280px; /* Zmniejszono wysokość */
+  background-size: cover; /* Zdjęcia zawsze wypełniają wrapper */
+  background-position: center; /* Wyśrodkowanie zdjęcia */
   background-repeat: no-repeat; /* Unikaj powtarzania obrazu */
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtelny cień */
-  margin: 20px auto; /* Wyśrodkowanie w poziomie */
+  margin: 15px auto; /* Wyśrodkowanie w poziomie */
   transition:
     opacity 1s ease-in-out,
-    transform 1s ease-in-out;
+    transform 0.5s ease-in-out;
+  animation: fade-in 1s ease-in-out; /* Animacja pojawiania */
 }
+
+/* Animacja pojawiania się */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animacja znikania */
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Dodanie animacji fade-out */
+.fade-out {
+  animation: fade-out 1s ease-in-out;
+}
+
+/* Rating Section */
+.rating {
+  margin-top: 15px;
+  font-size: 1rem; /* Dynamiczny rozmiar tekstu */
+  color: var(--rating-color, #333);
+}
+
+.rating h3 {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
 /* Buttons */
 .randomize-button,
 .learn-button {
   border: none;
-  padding: calc(0.8 * var(--font-size)) calc(1.2 * var(--font-size));
-  font-size: calc(1 * var(--font-size));
+  padding: calc(0.6 * var(--font-size)) calc(1 * var(--font-size)); /* Dynamiczny padding */
+  font-size: calc(0.9 * var(--font-size)); /* Dynamiczny rozmiar */
   background-color: var(--button-background, #007bff);
   color: var(--button-text-color, white);
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   transition:
     background-color 0.3s ease,
     transform 0.2s ease;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .randomize-button:hover,
@@ -113,95 +152,66 @@ body.high-contrast .content-box h1 {
   transform: scale(1.05); /* Slight scaling effect */
 }
 
-/* High Contrast Mode */
-body.high-contrast .find-new-hobby::before {
-  background-color: rgba(0, 0, 0, 0.9); /* Stronger dimming */
-}
-
-body.high-contrast .content-box {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #ffff00;
-  border: 2px solid #ffff00;
-}
-
-body.high-contrast .image-wrapper {
-  border: 3px solid #ffff00;
-}
-
-body.high-contrast .randomize-button,
-body.high-contrast .learn-button {
-  background-color: #ffff00;
-  color: #000000;
-}
-
-body.high-contrast .randomize-button:hover,
-body.high-contrast .learn-button:hover {
-  background-color: #ffcc00;
-}
-
 /* Light Mode */
-body.light .find-new-hobby::before {
-  background-color: rgba(255, 255, 255, 0.5); /* Light mode overlay */
-}
-
 body.light .content-box {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #333;
-}
-
-body.light .randomize-button,
-body.light .learn-button {
-  background-color: #007bff;
-  color: white;
-}
-
-body.light .randomize-button:hover,
-body.light .learn-button:hover {
-  background-color: #0056b3;
+  --box-background: rgba(255, 255, 255, 0.9);
+  --content-color: #333;
+  --title-color: #333;
+  --rating-color: #333;
+  --button-background: #007bff;
+  --button-text-color: white;
+  --button-hover-color: #0056b3;
 }
 
 /* Dark Mode */
-body.dark .find-new-hobby::before {
-  background-color: rgba(0, 0, 0, 0.7); /* Dark mode overlay */
-}
-
 body.dark .content-box {
-  background-color: rgba(30, 30, 30, 0.8);
-  color: #f9f9f9;
+  --box-background: rgba(30, 30, 30, 0.9);
+  --content-color: #e0e0e0;
+  --title-color: #e0e0e0;
+  --rating-color: #e0e0e0;
+  --button-background: #90caf9;
+  --button-text-color: #121212;
+  --button-hover-color: #64b5f6;
 }
 
-body.dark .randomize-button,
-body.dark .learn-button {
-  background-color: #90caf9;
-  color: #121212;
-}
-
-body.dark .randomize-button:hover,
-body.dark .learn-button:hover {
-  background-color: #64b5f6;
+/* High Contrast Mode */
+body.high-contrast .content-box {
+  --box-background: #000;
+  --content-color: #ffff00;
+  --title-color: #ffff00;
+  --rating-color: #ffff00;
+  --button-background: #ffff00;
+  --button-text-color: #000;
+  --button-hover-color: #ffcc00;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .content-box {
     padding: 20px;
-  }
-
-  .randomize-button,
-  .learn-button {
-    padding: 10px 20px;
-    font-size: calc(0.9 * var(--font-size));
-  }
-}
-
-@media (max-width: 480px) {
-  .content-box {
-    padding: 15px;
+    min-height: 350px; /* Dostosowano wysokość */
   }
 
   .randomize-button,
   .learn-button {
     padding: 8px 15px;
     font-size: calc(0.8 * var(--font-size));
+  }
+}
+
+@media (max-width: 480px) {
+  .content-box {
+    padding: 15px;
+    min-height: 300px; /* Further adjustment for very small screens */
+  }
+
+  .image-wrapper {
+    height: 200px; /* Further reduced height for small screens */
+  }
+
+  .randomize-button,
+  .learn-button {
+    padding: 6px 12px;
+    font-size: calc(0.7 * var(--font-size));
   }
 }
