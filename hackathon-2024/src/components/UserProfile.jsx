@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../App";
 import "../styles/UserProfiles.css";
 import axios from "axios";
@@ -11,6 +11,9 @@ function UserProfile() {
     0: "Unfinished",
     1: "Completed",
   };
+
+  // State to handle the current page of activities (initially start with page 0)
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     const id = sessionStorage.getItem("id");
@@ -37,7 +40,51 @@ function UserProfile() {
         });
     }
   }, [setUserData]);
+
   const { username } = useContext(AppContext); // Assume `username` exists in context
+
+  // Slice activities to show only the first 3 based on currentPage
+  const activitiesToDisplay = userData.activities.slice(
+    currentPage * 3,
+    (currentPage + 1) * 3
+  );
+
+  // Navigate to the next set of activities
+  const handleNext = () => {
+    if ((currentPage + 1) * 3 < userData.activities.length) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  // Navigate to the previous set of activities
+  const handlePrevious = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  // Handle "Finish" button click
+  const handleFinishActivity = (index) => {
+    const updatedActivities = [...userData.activities];
+    updatedActivities[currentPage * 3 + index].stage = 1; // Mark as "Completed" (1)
+
+    // Update state and optionally make an API request to persist the change
+    setUserData({ ...userData, activities: updatedActivities });
+
+    // Optionally update the server
+    const id = sessionStorage.getItem("id");
+    axios
+      .put(`https://hackaton2024api.azurewebsites.net/api/users/${id}`, {
+        ...userData,
+        activities: updatedActivities,
+      })
+      .then(() => {
+        console.log("Activity status updated successfully");
+      })
+      .catch((error) => {
+        console.error("Error updating activity status", error);
+      });
+  };
 
   return (
     <div className="user-container">
@@ -65,16 +112,48 @@ function UserProfile() {
 
       {/* Bottom Section: Activities */}
       <div className="activities-section">
-        {userData.activities.length > 0 ? (
-          userData.activities.map((activity, index) => (
-            <div key={index} className="activity-item">
-              <h3>{activity.name}</h3>
-              <p>Stage: {ActivityStage[activity.stage]}</p>
-            </div>
-          ))
+        {activitiesToDisplay.length > 0 ? (
+          <div className="activities">
+            {activitiesToDisplay.map((activity, index) => (
+              <div key={index} className="activity-item">
+                <h3>{activity.name}</h3>
+                <div
+                  className="image-wrapper activity-image"
+                  style={{
+                    backgroundImage: `url(${activity.pictureUrl})`,
+                  }}
+                ></div>
+                <p>Stage: {ActivityStage[activity.stage]}</p>
+                <button
+                  className="finish-button"
+                  onClick={() => handleFinishActivity(index)}
+                >
+                  Finish
+                </button>
+              </div>
+            ))}
+          </div>
         ) : (
           <p>No activities yet. Start something new!</p>
         )}
+      </div>
+
+      {/* Navigation buttons */}
+      <div className="activity-navigation">
+        <button
+          className="scroll-button"
+          onClick={handlePrevious}
+          disabled={currentPage === 0}
+        >
+          Previous
+        </button>
+        <button
+          className="scroll-button"
+          onClick={handleNext}
+          disabled={(currentPage + 1) * 3 >= userData.activities.length}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
