@@ -15,10 +15,6 @@ function UserProfile() {
   // State to handle the current page of activities (initially start with page 0)
   const [currentPage, setCurrentPage] = useState(0);
 
-  // States for search functionality
-  const [searchQuery, setSearchQuery] = useState(""); // The query for searching users by email
-  const [searchResults, setSearchResults] = useState([]); // The search results array
-
   useEffect(() => {
     const id = sessionStorage.getItem("id");
     if (id) {
@@ -44,25 +40,6 @@ function UserProfile() {
         });
     }
   }, [setUserData]);
-
-  // Fetch users when search query is updated
-  useEffect(() => {
-    if (searchQuery) {
-      axios
-        .get(
-          `https://hackaton2024api.azurewebsites.net/api/users?email=${searchQuery}`
-        )
-        .then((response) => {
-          setSearchResults(response.data); // Set the search results
-        })
-        .catch((error) => {
-          console.error("Error fetching users for search", error);
-          setSearchResults([]); // Clear search results on error
-        });
-    } else {
-      setSearchResults([]); // Clear results if searchQuery is empty
-    }
-  }, [searchQuery]);
 
   // Slice activities to show only the first 3 based on currentPage
   const activitiesToDisplay = userData.activities.slice(
@@ -109,26 +86,6 @@ function UserProfile() {
 
   return (
     <div className="user-container">
-      {/* Search Input on the top right */}
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Search by email..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="search-input"
-        />
-        {searchQuery && (
-          <ul className="search-results">
-            {searchResults.map((user, index) => (
-              <li key={index} className="search-result-item">
-                {user.email}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
       {/* Top Section: User Photo and Summary */}
       <div className="top-section">
         <div
@@ -186,14 +143,14 @@ function UserProfile() {
           onClick={handlePrevious}
           disabled={currentPage === 0}
         >
-          Previous
+          &#8592; {/* Left Arrow for "Previous" */}
         </button>
         <button
           className="scroll-button"
           onClick={handleNext}
           disabled={(currentPage + 1) * 3 >= userData.activities.length}
         >
-          Next
+          &#8594; {/* Right Arrow for "Next" */}
         </button>
       </div>
     </div>
