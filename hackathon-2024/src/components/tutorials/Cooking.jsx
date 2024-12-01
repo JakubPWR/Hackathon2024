@@ -1,6 +1,6 @@
 import React from "react";
 import "/src/styles/Tutorial.css";
-import hobbies from "../data/hobbies";
+import hobbies from "/src/data/hobbies";
 
 function Cooking() {
   const handleLearned = () => {
