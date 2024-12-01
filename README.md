@@ -34,5 +34,24 @@ Po tym jak opanujemy nowe hobby, możemy odznaczyć ukończenie nauki. Aplikacja
   
 ---
 
+## Wykorzystane technologie
+
+### Frontend
+* React
+* Vite
+* Axios
+* Formik
+* YUP
+  
+### Backend
+* ASP.NET Core 6
+* Entity Framework Core 6
+* Microsoft SQL Server
+* JWT
+* FluentValidation
+* Dokumentacja Swagger
+
+---
+
 ## Instrukcja uruchomienia
 
