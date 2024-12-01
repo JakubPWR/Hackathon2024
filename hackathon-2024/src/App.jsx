@@ -52,7 +52,7 @@ function App() {
     document.body.classList.add(theme);
     document.body.style.setProperty(
       "--font-size",
-      fontSize === "small" ? "14px" : fontSize === "large" ? "26px" : "16px"
+      fontSize === "small" ? "14px" : fontSize === "large" ? "24px" : "18px"
     );
   }, [theme, fontSize]);
 
