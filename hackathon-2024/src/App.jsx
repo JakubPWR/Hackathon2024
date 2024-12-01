@@ -23,7 +23,7 @@ import Painting from "./components/tutorials/Painting";
 import Cycling from "./components/tutorials/Cycling";
 import Yoga from "./components/tutorials/Yoga";
 import Knitting from "./components/tutorials/Knitting";
-
+import TutorialsPage from "./components/tutorialsPage";
 export const AppContext = createContext();
 
 function App() {
@@ -94,6 +94,7 @@ function App() {
         <Route path="/tutorial/cycling" element={<Cycling />} />
         <Route path="/tutorial/yoga" element={<Yoga />} />
         <Route path="/tutorial/knitting" element={<Knitting />} />
+        <Route path="/tutorials" element={<TutorialsPage />} />
       </Routes>
       <Footer />
     </AppContext.Provider>

@@ -27,6 +27,9 @@ function Header() {
               <Link to="/settings">Ustawienia</Link>
             </li>
             <li className="nav-item">
+              <Link to="/tutorials">Poradniki</Link>
+            </li>
+            <li className="nav-item">
               <Link to="/ranking">Ranking</Link>
             </li>
             <li className="nav-item">
