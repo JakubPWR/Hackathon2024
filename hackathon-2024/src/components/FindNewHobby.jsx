@@ -59,6 +59,15 @@ function FindNewHobby() {
           {selectedHobby && remainingHobbies.length > 0 && (
             <>
               <h2>{selectedHobby.name}</h2>
+              <div className="rating">
+                <h3>Nasza ocena:</h3>
+                <p>
+                  💸: {selectedHobby.ratings.cost}/3, ⏱️:{" "}
+                  {selectedHobby.ratings.time}/3, 😎:{" "}
+                  {selectedHobby.ratings.fun}/3
+                </p>
+              </div>
+
               <p>{selectedHobby.description}</p>
               <button
                 className="randomize-button"

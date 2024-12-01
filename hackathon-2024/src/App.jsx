@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useRef, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import LandingPage from "./components/LandingPage";
@@ -13,7 +13,16 @@ import "./index.css";
 import Cooking from "./components/tutorials/Cooking";
 import Drawing from "./components/tutorials/Drawing";
 import Photography from "./components/tutorials/Photography";
-import axios from "axios";
+import Hiking from "./components/tutorials/Hiking";
+import Swimming from "./components/tutorials/Swimming";
+import Gardening from "./components/tutorials/Gardening";
+import Dancing from "./components/tutorials/Dancing";
+import Writing from "./components/tutorials/Writing";
+import Running from "./components/tutorials/Running";
+import Painting from "./components/tutorials/Painting";
+import Cycling from "./components/tutorials/Cycling";
+import Yoga from "./components/tutorials/Yoga";
+import Knitting from "./components/tutorials/Knitting";
 
 export const AppContext = createContext();
 
@@ -35,18 +44,9 @@ function App() {
       if (sessionStorage.getItem("id")) {
         setUserId(sessionStorage.getItem("id"));
       }
-      // axios
-      //   .get(`https://hackaton2024api.azurewebsites.net/api/users/${userId}`)
-      //   .then((response) => {
-      //     console.log(response);
-      //     console.log(response.data);
-      //     const data = { ...response.data };
-      //     console.log("hejjjj", data);
-      //     console.log(`moje id to ${userId}`);
-      //     currentUser.current = data;
-      //   });
     }
-  });
+  }, []);
+
   useEffect(() => {
     document.body.className = ""; // Reset classes
     document.body.classList.add(theme);
@@ -55,6 +55,7 @@ function App() {
       fontSize === "small" ? "14px" : fontSize === "large" ? "26px" : "16px"
     );
   }, [theme, fontSize]);
+
   return (
     <AppContext.Provider
       value={{
@@ -83,6 +84,16 @@ function App() {
         <Route path="/tutorial/drawing" element={<Drawing />} />
         <Route path="/tutorial/cooking" element={<Cooking />} />
         <Route path="/tutorial/photography" element={<Photography />} />
+        <Route path="/tutorial/hiking" element={<Hiking />} />
+        <Route path="/tutorial/swimming" element={<Swimming />} />
+        <Route path="/tutorial/gardening" element={<Gardening />} />
+        <Route path="/tutorial/dancing" element={<Dancing />} />
+        <Route path="/tutorial/writing" element={<Writing />} />
+        <Route path="/tutorial/running" element={<Running />} />
+        <Route path="/tutorial/painting" element={<Painting />} />
+        <Route path="/tutorial/cycling" element={<Cycling />} />
+        <Route path="/tutorial/yoga" element={<Yoga />} />
+        <Route path="/tutorial/knitting" element={<Knitting />} />
       </Routes>
       <Footer />
     </AppContext.Provider>
