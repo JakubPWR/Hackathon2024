@@ -61,7 +61,7 @@ function FindNewHobby() {
               <h2>{selectedHobby.name}</h2>
               <div className="rating">
                 <h3>Nasza ocena:</h3>
-                <p>
+                <p className="rating-text">
                   💸: {selectedHobby.ratings.cost}/3, ⏱️:{" "}
                   {selectedHobby.ratings.time}/3, 😎:{" "}
                   {selectedHobby.ratings.fun}/3
