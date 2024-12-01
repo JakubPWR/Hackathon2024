@@ -37,7 +37,11 @@ function Header() {
             </li>
             <li className="nav-item">
               {sessionStorage.getItem("accessKey") ? (
-                <Link className="auth-button" onClick={() => handleLogout()}>
+                <Link
+                  className="auth-button"
+                  to="/"
+                  onClick={() => handleLogout()}
+                >
                   Logout
                 </Link>
               ) : (
