@@ -1,19 +1,21 @@
 import React from "react";
 import "/src/styles/Tutorial.css";
+import hobbies from "../data/hobbies";
 
 function Drawing() {
   const handleLearned = () => {
     alert("Gratulacje! Nauczyłeś się rysować!");
   };
 
+  const drawingHobby = hobbies.find((hobby) => hobby.id === 2);
+
   return (
     <div className="tutorial-page">
-      {/* Transparent Box */}
       <div className="tutorial-container">
         <h1 className="title">Rysowanie - Nauka od podstaw</h1>
         <div className="video-container">
           <iframe
-            src="https://www.youtube.com/embed/1jjmOF1hQqI" // Replace with an actual drawing tutorial video URL
+            src="https://www.youtube.com/embed/1jjmOF1hQqI"
             title="Drawing Tutorial"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -29,6 +31,15 @@ function Drawing() {
           <li>Ćwicz cieniowanie i tekstury.</li>
           <li>Znajdź swój styl poprzez codzienną praktykę.</li>
         </ul>
+        {drawingHobby && (
+          <div className="rating">
+            <h3>Nasza ocena:</h3>
+            <p>
+              💸: {drawingHobby.ratings.cost}/3, ⏱️: {drawingHobby.ratings.time}
+              /3, 😎: {drawingHobby.ratings.fun}/3
+            </p>
+          </div>
+        )}
         <button className="learned-button" onClick={handleLearned}>
           Nauczyłem się!
         </button>

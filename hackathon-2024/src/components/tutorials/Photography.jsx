@@ -1,34 +1,45 @@
 import React from "react";
 import "/src/styles/Tutorial.css";
+import hobbies from "../data/hobbies";
 
-function Photography() {
+function Cooking() {
   const handleLearned = () => {
-    alert("Gratulacje! Nauczyłeś się podstaw fotografii!");
+    alert("Gratulacje! Nauczyłeś się gotować!");
   };
+
+  const cookingHobby = hobbies.find((hobby) => hobby.id === 3);
 
   return (
     <div className="tutorial-page">
-      {/* Transparent Box */}
       <div className="tutorial-container">
-        <h1 className="title">Fotografia - Nauka od podstaw</h1>
+        <h1 className="title">Gotowanie - Nauka od podstaw</h1>
         <div className="video-container">
           <iframe
-            src="https://www.youtube.com/embed/V7z7BAZdt2M" // Replace with an actual photography tutorial video URL
-            title="Photography Tutorial"
+            src="https://www.youtube.com/embed/HRZfSwuS_GQ"
+            title="Cooking Tutorial"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
         </div>
         <p className="description">
-          Poznaj podstawy fotografii, od ustawień aparatu po kompozycję i
-          światło!
+          Gotowanie to sztuka, która pozwala tworzyć pyszne posiłki i wyrażać
+          kreatywność w kuchni.
         </p>
         <ul className="steps">
-          <li>Poznaj ustawienia aparatu: ISO, przysłona, czas naświetlania.</li>
-          <li>Zwróć uwagę na światło i cień.</li>
-          <li>Eksperymentuj z różnymi kompozycjami.</li>
-          <li>Praktykuj w różnych warunkach oświetleniowych.</li>
+          <li>Wybierz przepis, który Cię interesuje.</li>
+          <li>Przygotuj wszystkie składniki i narzędzia kuchenne.</li>
+          <li>Postępuj krok po kroku zgodnie z instrukcjami przepisu.</li>
+          <li>Spróbuj końcowego dania i ocen swoje umiejętności.</li>
         </ul>
+        {cookingHobby && (
+          <div className="rating">
+            <h3>Nasza ocena:</h3>
+            <p>
+              💸: {cookingHobby.ratings.cost}/3, ⏱️: {cookingHobby.ratings.time}
+              /3, 😎: {cookingHobby.ratings.fun}/3
+            </p>
+          </div>
+        )}
         <button className="learned-button" onClick={handleLearned}>
           Nauczyłem się!
         </button>
@@ -37,4 +48,4 @@ function Photography() {
   );
 }
 
-export default Photography;
+export default Cooking;
