@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../App";
+import { useNavigate } from "react-router-dom";
 import "../styles/UserProfiles.css";
 import axios from "axios";
 
 function UserProfile() {
   const { userData, setUserData } = useContext(AppContext);
-
+  const navigate = useNavigate();
   // Enum to map activity stages to descriptive labels
   const ActivityStage = {
     0: "Unfinished",
@@ -217,7 +218,7 @@ function UserProfile() {
       {/* Button for requesting summary */}
       {viewCompleted && (
         <div className="request-summary">
-          <button onClick={handleRequestSummary}>Summarize My Learning</button>
+          <button onClick={navigate("/fail")}>Summarize My Learning</button>
         </div>
       )}
 

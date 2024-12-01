@@ -50,6 +50,7 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 15px; /* Ensure some space from the edges on mobile */
 }
 
 /* Title */
@@ -237,6 +238,7 @@ body.high-contrast .learn-button:hover {
   .content-box {
     padding: 20px;
     min-height: 350px;
+    margin: 0 10px; /* Reduce side margins on smaller screens */
   }
 
   .randomize-button,
@@ -250,6 +252,7 @@ body.high-contrast .learn-button:hover {
   .content-box {
     padding: 15px;
     min-height: 300px;
+    margin: 0 5px; /* Even smaller side margins for mobile */
   }
 
   .image-wrapper {

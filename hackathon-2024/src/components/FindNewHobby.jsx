@@ -4,28 +4,26 @@ import hobbies from "../data/hobbies";
 import "../styles/FindNewHobby.css";
 
 function FindNewHobby() {
-  const [remainingHobbies, setRemainingHobbies] = useState([...hobbies]); // Clone the hobbies list
+  const [remainingHobbies, setRemainingHobbies] = useState([...hobbies]);
   const [selectedHobby, setSelectedHobby] = useState(null);
-  const [isRevealing, setIsRevealing] = useState(false); // State to handle animation
+  const [isRevealing, setIsRevealing] = useState(false);
   const navigate = useNavigate();
 
-  console.log(remainingHobbies);
   const handleRandomizeHobby = () => {
-    if (remainingHobbies.length === 0) return; // Stop if no hobbies left
+    if (remainingHobbies.length === 0) return;
 
-    setIsRevealing(true); // Start the animation
+    setIsRevealing(true);
     setTimeout(() => {
       const randomIndex = Math.floor(Math.random() * remainingHobbies.length);
       const newHobby = remainingHobbies[randomIndex];
       setSelectedHobby(newHobby);
 
-      // Update remaining hobbies
       const updatedHobbies = [...remainingHobbies];
-      updatedHobbies.splice(randomIndex, 1); // Remove the selected hobby by index
+      updatedHobbies.splice(randomIndex, 1);
       setRemainingHobbies(updatedHobbies);
 
-      setIsRevealing(false); // End the animation
-    }, 1000); // Match the animation duration in CSS
+      setIsRevealing(false);
+    }, 1000);
   };
 
   return (

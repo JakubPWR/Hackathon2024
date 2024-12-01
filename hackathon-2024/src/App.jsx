@@ -24,6 +24,7 @@ import Cycling from "./components/tutorials/Cycling";
 import Yoga from "./components/tutorials/Yoga";
 import Knitting from "./components/tutorials/Knitting";
 import TutorialsPage from "./components/tutorialsPage";
+import Fail from "./components/Fail";
 export const AppContext = createContext();
 
 function App() {
@@ -95,6 +96,7 @@ function App() {
         <Route path="/tutorial/yoga" element={<Yoga />} />
         <Route path="/tutorial/knitting" element={<Knitting />} />
         <Route path="/tutorials" element={<TutorialsPage />} />
+        <Route path="/fails" element={<Fail />} />
       </Routes>
       <Footer />
     </AppContext.Provider>
