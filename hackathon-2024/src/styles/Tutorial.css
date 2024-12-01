@@ -14,10 +14,10 @@ html {
   align-items: center;
   height: 100vh;
   background-image: url("/src/images/tutorialbackground.jpg");
-  background-size: cover; /* Ensure the background covers the entire page */
-  background-position: center; /* Center the background image */
-  background-repeat: no-repeat; /* Prevent repeating the background */
-  color: var(--text-color, #333);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--text-color, #333); /* Dynamiczny kolor tekstu */
   padding: 20px;
 }
 
@@ -25,17 +25,21 @@ html {
 .tutorial-container {
   max-width: 800px;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8); /* Transparent box */
+  background-color: var(
+    --container-bg,
+    rgba(255, 255, 255, 0.8)
+  ); /* Dynamiczny kolor tła */
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+  color: var(--text-color, #333); /* Dynamiczny kolor tekstu */
 }
 
 /* Title */
 .title {
   font-size: calc(1.6 * var(--font-size));
   margin-bottom: 20px;
-  color: var(--title-color, #333);
+  color: var(--title-color, #333); /* Dynamiczny kolor tytułu */
 }
 
 /* Video Container */
@@ -61,6 +65,7 @@ html {
   font-size: calc(1.2 * var(--font-size));
   margin-bottom: 20px;
   line-height: 1.6;
+  color: var(--text-color, #333); /* Dynamiczny kolor tekstu */
 }
 
 /* Steps */
@@ -74,6 +79,19 @@ html {
 .steps li {
   margin-bottom: 10px;
   font-size: calc(1 * var(--font-size));
+  color: var(--text-color, #333); /* Dynamiczny kolor tekstu */
+}
+
+/* Rating */
+.rating h3 {
+  font-size: calc(1.2 * var(--font-size));
+  color: var(--title-color, #333); /* Dynamiczny kolor tytułu */
+  margin-bottom: 10px;
+}
+
+.rating p {
+  font-size: calc(1 * var(--font-size));
+  color: var(--text-color, #333); /* Dynamiczny kolor tekstu */
 }
 
 /* Learned Button */
@@ -99,6 +117,7 @@ html {
 body.light .tutorial-page {
   --text-color: #333;
   --title-color: #333;
+  --container-bg: rgba(255, 255, 255, 0.8);
   --button-bg-color: #007bff;
   --button-text-color: white;
   --button-hover-bg-color: #0056b3;
@@ -108,13 +127,13 @@ body.light .tutorial-page {
 body.dark .tutorial-page {
   --text-color: #e0e0e0;
   --title-color: #f9f9f9;
+  --container-bg: rgba(30, 30, 30, 0.8);
   --button-bg-color: #90caf9;
   --button-text-color: #121212;
   --button-hover-bg-color: #64b5f6;
 }
 
 body.dark .tutorial-container {
-  background-color: rgba(30, 30, 30, 0.8);
   color: #f9f9f9;
 }
 
@@ -122,13 +141,13 @@ body.dark .tutorial-container {
 body.high-contrast .tutorial-page {
   --text-color: #ffff00;
   --title-color: #ffff00;
+  --container-bg: rgba(0, 0, 0, 0.8);
   --button-bg-color: #ffff00;
   --button-text-color: #000;
   --button-hover-bg-color: #ffcc00;
 }
 
 body.high-contrast .tutorial-container {
-  background-color: rgba(0, 0, 0, 0.8);
   color: #ffff00;
   border: 2px solid #ffff00;
 }
