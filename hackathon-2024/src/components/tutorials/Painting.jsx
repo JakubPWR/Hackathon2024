@@ -14,7 +14,7 @@ function Painting() {
         <h1 className="title">Malowanie - Nauka od podstaw</h1>
         <div className="video-container">
           <iframe
-            src="https://www.youtube.com/embed/J4mzmHny6ko"
+            src="https://www.youtube.com/embed/lLWEXRAnQd0"
             title="Painting Tutorial"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

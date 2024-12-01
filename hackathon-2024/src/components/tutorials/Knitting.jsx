@@ -14,7 +14,7 @@ function Knitting() {
         <h1 className="title">Robienie na drutach - Nauka od podstaw</h1>
         <div className="video-container">
           <iframe
-            src="https://www.youtube.com/embed/fndD03SuFe8"
+            src="https://www.youtube.com/embed/p_R1UDsNOMk"
             title="Knitting Tutorial"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

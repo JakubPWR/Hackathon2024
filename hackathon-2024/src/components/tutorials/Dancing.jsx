@@ -14,7 +14,7 @@ function Dancing() {
         <h1 className="title">Taniec - Nauka od podstaw</h1>
         <div className="video-container">
           <iframe
-            src="https://www.youtube.com/embed/TetkzxCszaQ"
+            src="https://www.youtube.com/embed/MqQHpKGbXzU"
             title="Dancing Tutorial"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

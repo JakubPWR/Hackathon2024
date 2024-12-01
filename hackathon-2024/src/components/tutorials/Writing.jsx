@@ -14,7 +14,7 @@ function Writing() {
         <h1 className="title">Pisanie - Nauka od podstaw</h1>
         <div className="video-container">
           <iframe
-            src="https://www.youtube.com/embed/zQVnSWwdQOc"
+            src="https://www.youtube.com/embed/j7rKKpwdXNE"
             title="Writing Tutorial"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

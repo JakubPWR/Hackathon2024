@@ -14,7 +14,7 @@ function Swimming() {
         <h1 className="title">Pływanie - Nauka od podstaw</h1>
         <div className="video-container">
           <iframe
-            src="https://www.youtube.com/embed/a4Fwwnqx2XM"
+            src="https://www.youtube.com/embed/AQy_c30lNjI"
             title="Swimming Tutorial"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
