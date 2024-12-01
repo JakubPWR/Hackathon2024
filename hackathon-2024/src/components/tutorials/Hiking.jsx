@@ -14,7 +14,7 @@ function Hiking() {
         <h1 className="title">Wędrówki - Nauka od podstaw</h1>
         <div className="video-container">
           <iframe
-            src="https://www.youtube.com/embed/aEgP9zxUMpY"
+            src="https://www.youtube.com/embed/aIIAi4L8qbs"
             title="Hiking Tutorial"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

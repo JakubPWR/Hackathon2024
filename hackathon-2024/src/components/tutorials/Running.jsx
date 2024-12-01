@@ -14,7 +14,7 @@ function Running() {
         <h1 className="title">Bieganie - Nauka od podstaw</h1>
         <div className="video-container">
           <iframe
-            src="https://www.youtube.com/embed/tnw4q_l8Y0Q"
+            src="https://www.youtube.com/embed/_kGESn8ArrU"
             title="Running Tutorial"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

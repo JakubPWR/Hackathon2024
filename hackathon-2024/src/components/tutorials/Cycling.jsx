@@ -14,7 +14,7 @@ function Cycling() {
         <h1 className="title">Kolarstwo - Nauka od podstaw</h1>
         <div className="video-container">
           <iframe
-            src="https://www.youtube.com/embed/sbnwhUYKf34"
+            src="https://www.youtube.com/embed/GyLlw1CgXf8"
             title="Cycling Tutorial"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
