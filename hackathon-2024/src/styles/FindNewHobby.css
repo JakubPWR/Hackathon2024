@@ -75,20 +75,22 @@ body.high-contrast .content-box h1 {
 }
 
 /* Image Wrapper */
+/* Image Wrapper */
 .image-wrapper {
   width: 100%;
-  max-width: 600px; /* Max width for container */
-  height: calc(600px / 16 * 9); /* 16:9 Aspect Ratio */
-  background-size: cover;
+  max-width: 600px; /* Maksymalna szerokość kontenera */
+  min-width: 300px; /* Minimalna szerokość zdjęcia */
+  height: calc(600px / 16 * 9); /* Proporcje 16:9 */
+  background-size: contain; /* Dopasowuje obraz, aby był w pełni widoczny */
   background-position: center;
+  background-repeat: no-repeat; /* Unikaj powtarzania obrazu */
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  margin: 20px auto; /* Center horizontally */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtelny cień */
+  margin: 20px auto; /* Wyśrodkowanie w poziomie */
   transition:
     opacity 1s ease-in-out,
     transform 1s ease-in-out;
 }
-
 /* Buttons */
 .randomize-button,
 .learn-button {

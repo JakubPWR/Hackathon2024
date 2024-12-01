@@ -1,14 +1,16 @@
 import React from "react";
 import "/src/styles/Tutorial.css";
+import hobbies from "../data/hobbies";
 
 function Cooking() {
   const handleLearned = () => {
     alert("Gratulacje! Nauczyłeś się gotować!");
   };
 
+  const cookingHobby = hobbies.find((hobby) => hobby.id === 3);
+
   return (
     <div className="tutorial-page">
-      {/* Transparent Box */}
       <div className="tutorial-container">
         <h1 className="title">Gotowanie - Nauka od podstaw</h1>
         <div className="video-container">
@@ -29,6 +31,15 @@ function Cooking() {
           <li>Postępuj krok po kroku zgodnie z instrukcjami przepisu.</li>
           <li>Spróbuj końcowego dania i ocen swoje umiejętności.</li>
         </ul>
+        {cookingHobby && (
+          <div className="rating">
+            <h3>Nasza ocena:</h3>
+            <p>
+              💸: {cookingHobby.ratings.cost}/3, ⏱️: {cookingHobby.ratings.time}
+              /3, 😎: {cookingHobby.ratings.fun}/3
+            </p>
+          </div>
+        )}
         <button className="learned-button" onClick={handleLearned}>
           Nauczyłem się!
         </button>
