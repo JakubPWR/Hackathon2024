@@ -104,6 +104,15 @@ body.high-contrast .header-logo-h2 a {
 body.high-contrast .header-logo-h2 a:hover {
   color: #ffcc00;
 }
+body.dark .header-logo-h2 {
+  color: #e0e0e0;
+}
+body.dark .header-logo-h2:hover {
+  color: #90caf9;
+}
+body.light .header-logo-h2:hover {
+  color: #007bff;
+}
 
 /* Nav styles */
 .header-nav {
