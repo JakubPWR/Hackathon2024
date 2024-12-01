@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useRef, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import LandingPage from "./components/LandingPage";
@@ -13,18 +13,38 @@ import "./index.css";
 import Cooking from "./components/tutorials/Cooking";
 import Drawing from "./components/tutorials/Drawing";
 import Photography from "./components/tutorials/Photography";
+import axios from "axios";
 
 export const AppContext = createContext();
 
 function App() {
   const [logged, setLogged] = useState(false);
   const [userId, setUserId] = useState(1);
+  const [userData, setUserData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    activities: [], // Initialize activities as an empty array
+  });
   const [theme, setTheme] = useState("light");
   const [fontSize, setFontSize] = useState("medium");
 
   useEffect(() => {
     if (sessionStorage.getItem("accessKey")) {
       setLogged(true);
+      if (sessionStorage.getItem("id")) {
+        setUserId(sessionStorage.getItem("id"));
+      }
+      // axios
+      //   .get(`https://hackaton2024api.azurewebsites.net/api/users/${userId}`)
+      //   .then((response) => {
+      //     console.log(response);
+      //     console.log(response.data);
+      //     const data = { ...response.data };
+      //     console.log("hejjjj", data);
+      //     console.log(`moje id to ${userId}`);
+      //     currentUser.current = data;
+      //   });
     }
   });
 
@@ -36,18 +56,19 @@ function App() {
       fontSize === "small" ? "14px" : fontSize === "large" ? "26px" : "16px"
     );
   }, [theme, fontSize]);
-
   return (
     <AppContext.Provider
       value={{
-        userId,
-        setUserId,
         logged,
         setLogged,
         theme,
         setTheme,
         fontSize,
         setFontSize,
+        userId,
+        setUserId,
+        userData,
+        setUserData,
       }}
     >
       <Header />
