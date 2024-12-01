@@ -57,5 +57,5 @@ Po tym jak opanujemy nowe hobby, możemy odznaczyć ukończenie nauki. Aplikacja
 ## Instrukcja uruchomienia
 aby uruchomić program należy:
 -zainstalować paczki zawarte w pliku:
--package.json w folderze hackathon-2024
--wpisać w terminalu komendę npm run dev
+*package.json w folderze hackathon-2024
+*wpisać w terminalu komendę npm run dev
