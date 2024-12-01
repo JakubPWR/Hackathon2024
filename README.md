@@ -30,7 +30,7 @@ Po tym jak opanujemy nowe hobby, możemy odznaczyć ukończenie nauki. Aplikacja
  - W przyszłości chcielibyśmy dodać integracje z AI. Planujemy użycia API ChatGPT do podsumowywania progresu naszych użytkowników i motywowania ich do próbowania nowyh rzeczy.
    
  **Gorąca seria**
- - Chcemy także dodać system, który śledziłby jak często użytkownicy odwiedzają nasz serwis i nagradzał i za codzienne wizyty.
+ - Chcemy dodać system, który śledziłby jak często użytkownicy odwiedzają nasz serwis i nagradzał ich za codzienne wizyty.
   
 ---
 
