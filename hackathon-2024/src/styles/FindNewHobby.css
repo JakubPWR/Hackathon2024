@@ -4,18 +4,18 @@ html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  font-size: var(--font-size, 16px); /* Dynamiczna czcionka */
+  font-size: 16px;
   height: 100%;
 }
 
 /* Find New Hobby Section */
 .find-new-hobby {
   position: relative;
-  height: 90vh; /* Zmniejszone na 90% wysokości widoku */
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../images/backgroundhobby.jpg"); /* Background image */
+  background-image: url("../images/backgroundhobby.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -30,25 +30,22 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Przyciemnienie */
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: -1;
 }
 
 /* Content Box */
 .content-box {
   z-index: 1;
-  max-width: 700px; /* Zmniejszono szerokość boxa */
-  width: 90%; /* Pełna szerokość na mniejszych ekranach */
+  max-width: 700px;
+  width: 90%;
   text-align: center;
-  padding: 30px; /* Zmniejszono padding */
+  padding: 30px;
   border-radius: 8px;
-  background-color: var(
-    --box-background,
-    rgba(255, 255, 255, 0.8)
-  ); /* Dynamic background */
+  background-color: #ffffff; /* Default for Light Mode */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  color: var(--content-color, #333);
-  min-height: 400px; /* Zmniejszono wysokość */
+  color: #333; /* Default text color */
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,9 +54,9 @@ html {
 
 /* Title */
 .content-box h1 {
-  font-size: calc(1.4 * var(--font-size)); /* Dynamiczny rozmiar tytułu */
+  font-size: 22px;
   margin-bottom: 15px;
-  color: var(--title-color, #333); /* Dynamiczny kolor tytułu */
+  color: #333; /* Default for Light Mode */
 }
 
 /* Hobby Container */
@@ -74,19 +71,19 @@ html {
 
 /* Image Wrapper */
 .image-wrapper {
-  width: 90%; /* Używa 90% szerokości kontenera */
-  max-width: 500px; /* Zmniejszono maksymalną szerokość */
-  height: 280px; /* Zmniejszono wysokość */
-  background-size: cover; /* Zdjęcia zawsze wypełniają wrapper */
-  background-position: center; /* Wyśrodkowanie zdjęcia */
-  background-repeat: no-repeat; /* Unikaj powtarzania obrazu */
+  width: 90%;
+  max-width: 500px;
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtelny cień */
-  margin: 15px auto; /* Wyśrodkowanie w poziomie */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin: 15px auto;
   transition:
     opacity 1s ease-in-out,
     transform 0.5s ease-in-out;
-  animation: fade-in 1s ease-in-out; /* Animacja pojawiania */
+  animation: fade-in 1s ease-in-out;
 }
 
 /* Animacja pojawiania się */
@@ -121,23 +118,28 @@ html {
 /* Rating Section */
 .rating {
   margin-top: 15px;
-  font-size: 1rem; /* Dynamiczny rozmiar tekstu */
-  color: var(--rating-color, #333);
+  font-size: 16px; /* Stały rozmiar czcionki */
+  color: #333; /* Default for Light Mode */
 }
 
 .rating h3 {
   margin-bottom: 8px;
   font-weight: bold;
+  color: #333; /* Default for Light Mode */
+}
+
+.rating p {
+  color: #333; /* Default for Light Mode */
 }
 
 /* Buttons */
 .randomize-button,
 .learn-button {
   border: none;
-  padding: calc(0.6 * var(--font-size)) calc(1 * var(--font-size)); /* Dynamiczny padding */
-  font-size: calc(0.9 * var(--font-size)); /* Dynamiczny rozmiar */
-  background-color: var(--button-background, #007bff);
-  color: var(--button-text-color, white);
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff; /* Default for Light Mode */
+  color: white;
   border-radius: 5px;
   cursor: pointer;
   transition:
@@ -148,70 +150,115 @@ html {
 
 .randomize-button:hover,
 .learn-button:hover {
-  background-color: var(--button-hover-color, #0056b3);
-  transform: scale(1.05); /* Slight scaling effect */
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 /* Light Mode */
 body.light .content-box {
-  --box-background: rgba(255, 255, 255, 0.9);
-  --content-color: #333;
-  --title-color: #333;
-  --rating-color: #333;
-  --button-background: #007bff;
-  --button-text-color: white;
-  --button-hover-color: #0056b3;
+  background-color: #ffffff;
+  color: #333;
+}
+
+body.light .content-box h1 {
+  color: #333;
+}
+
+body.light .rating h3,
+body.light .rating p {
+  color: #333;
+}
+
+body.light .randomize-button,
+body.light .learn-button {
+  background-color: #007bff;
+  color: white;
+}
+
+body.light .randomize-button:hover,
+body.light .learn-button:hover {
+  background-color: #0056b3;
 }
 
 /* Dark Mode */
 body.dark .content-box {
-  --box-background: rgba(30, 30, 30, 0.9);
-  --content-color: #e0e0e0;
-  --title-color: #e0e0e0;
-  --rating-color: #e0e0e0;
-  --button-background: #90caf9;
-  --button-text-color: #121212;
-  --button-hover-color: #64b5f6;
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+}
+
+body.dark .content-box h1 {
+  color: #e0e0e0;
+}
+
+body.dark .rating h3,
+body.dark .rating p {
+  color: #e0e0e0;
+}
+
+body.dark .randomize-button,
+body.dark .learn-button {
+  background-color: #90caf9;
+  color: #121212;
+}
+
+body.dark .randomize-button:hover,
+body.dark .learn-button:hover {
+  background-color: #64b5f6;
 }
 
 /* High Contrast Mode */
 body.high-contrast .content-box {
-  --box-background: #000;
-  --content-color: #ffff00;
-  --title-color: #ffff00;
-  --rating-color: #ffff00;
-  --button-background: #ffff00;
-  --button-text-color: #000;
-  --button-hover-color: #ffcc00;
+  background-color: #000;
+  color: #ffff00;
+}
+
+body.high-contrast .content-box h1 {
+  color: #ffff00;
+}
+
+body.high-contrast .rating h3,
+body.high-contrast .rating p {
+  color: #ffff00;
+}
+
+body.high-contrast .randomize-button,
+body.high-contrast .learn-button {
+  background-color: #ffff00;
+  color: #000;
+}
+
+body.high-contrast .randomize-button:hover,
+body.high-contrast .learn-button:hover {
+  background-color: #ffcc00;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .content-box {
     padding: 20px;
-    min-height: 350px; /* Dostosowano wysokość */
+    min-height: 350px;
   }
 
   .randomize-button,
   .learn-button {
     padding: 8px 15px;
-    font-size: calc(0.8 * var(--font-size));
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
   .content-box {
     padding: 15px;
-    min-height: 300px; /* Further adjustment for very small screens */
+    min-height: 300px;
   }
 
   .image-wrapper {
-    height: 200px; /* Further reduced height for small screens */
+    height: 200px;
   }
 
   .randomize-button,
   .learn-button {
     padding: 6px 12px;
-    font-size: calc(0.7 * var(--font-size));
+    font-size: 12px;
   }
 }
