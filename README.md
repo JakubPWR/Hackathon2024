@@ -1,7 +1,7 @@
 
 # Hobbystycznie
 
-https://github.com/user-attachments/assets/f7b73fbf-fccd-4c93-ac0d-da2149d29867
+
 
 
 
